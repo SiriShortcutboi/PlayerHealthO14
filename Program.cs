@@ -1,5 +1,5 @@
 ﻿using System;
-using CoolTreasure;
+using PlayerHealth;
 /*
 ºprivate fields
 ºpublic methods
@@ -10,17 +10,14 @@ public class Program
 {
 	public static void Main()
 	{
-		TreasureChest CoolChest = new TreasureChest();
+		Player player = new Player();
 		Console.WriteLine("Ahoy matey, take a look in my special " +
 		"treasure chest \nwhile i make a deposit");
-		CoolChest.AddGold();
-		Console.WriteLine($"Gold added! {CoolChest.DisplayGold()}");
-		CoolChest.AddGold();
-		Console.WriteLine($"Gold added! {CoolChest.DisplayGold()}");
-		CoolChest.RemoveGold();
-		Console.WriteLine($"Gold removed! {CoolChest.DisplayGold()}");
-		CoolChest.RemoveGold();
-		Console.WriteLine($"Gold removed! {CoolChest.DisplayGold()}");
+		player.Heal();
+		player.Heal();
+		player.TakeDamage();
+		player.TakeDamage();
+
 		
 	}
 }

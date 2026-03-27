@@ -1,47 +1,52 @@
 ﻿using System;
-namespace CoolTreasure;
-class TreasureChest
+namespace PlayerHealth;
+class Player
 { 
-	private int _treasureAmount;
-
+	private int _amount;
 	
-	private int TreasureAmount
+	private int _Amount
 	{
-		get {return _treasureAmount;}
-		set {_treasureAmount = value;}
+		get {return _Amount;}
+		set {_Amount = _amount;}
 	}
-	public int AddGold()
+	public int Heal(int _Amount)
 	{
-		TreasureAmount = TreasureAmount +1000;
-		return TreasureAmount;
-	}
-
-	public string RemoveGold()
-	{
-		if (TreasureAmount < 1000)
+		if (_Amount >= 100)
 		{
-			Console.WriteLine("Cannot remove more Gold than is here in the chest");
-			return "0";
+			_Amount = 100;
+			Console.WriteLine("Player cannot heal more, Strength Boost activated");
 		}
 		else
 		{
-			TreasureAmount = TreasureAmount - 1000;
-			if (TreasureAmount == 0)
+			_Amount += 50;
+			Console.WriteLine($"Player gulps Baja Blast... " 
+			+ $"\nPlayer Health: {_Amount}");
+			
+		}
+		return _amount;
+	}
+
+	public int TakeDamage( int _Amount)
+	{
+		if (_Amount < 0)
+		{
+			Console.WriteLine("Player defeated");
+			_Amount=0;
+			return _amount;
+		}
+		else
+		{
+			_Amount = _Amount - 20;
+			if (_Amount <= 0)
 			{
-				TreasureAmount++;
-				Console.WriteLine("Agh pesky BUG get out of here! Darn I dropped a coin in there, I'll just leave it");
+				_Amount = 0;
 			}
 		}	
 		
-		return TreasureAmount.ToString();
+		return _amount;
 	}
 
-	public string DisplayGold()
-	{
-		return $"Current gold in chest: {TreasureAmount}";
-	}
-}
-
+}//end of Player class
 
 
 /*
@@ -52,4 +57,8 @@ class TreasureChest
         {
             this.Model = model;
             this.Speed = 0;
+
+
+
+
  */
