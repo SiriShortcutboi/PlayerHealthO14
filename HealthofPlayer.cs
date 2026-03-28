@@ -63,19 +63,34 @@ class Player
 		if (amount < 0)
 		{
 			amount = 0;
+			return;
 		}
 
 		_amount -= amount;//this line: take the damage passed in from porgram cs and math it onto the real prvivate variable
 		if (_amount < 0)
+        {
+            _amount = 0;
+        }
+
+        if (amount >= 50) //keepworking tag
 		{
-			_amount = 0;
+			Console.WriteLine($"Player takes {amount} MegaDamage!");
+        	Console.WriteLine($"Health: {_amount}");
+		}
+		else if (amount == 20)
+		{
+        Console.WriteLine($"Player takes {amount} damage.");
+        Console.WriteLine($"Health: {_amount}");
+		}
+		else 
+		{
+			Console.WriteLine($"Player takes {amount} damage.");
+        Console.WriteLine($"Health: {_amount}");
 		}
 
-		Console.WriteLine($"Player takes {amount} damage.");
-		Console.WriteLine($"Health: {_amount}");
-		if (_amount == 0)
-		{
-			Console.WriteLine("Player defeated");
+        if (_amount == 0)
+        {
+            Console.WriteLine("Player defeated!");
 		}
 	}
 

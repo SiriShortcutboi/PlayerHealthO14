@@ -18,7 +18,8 @@ public class Program
 		player.Heal(35);
 		player.TakeDamage(20);
 		player.TakeDamage(20);
-
+		player.TakeDamage(70);
+		
 		
 	}
 }
