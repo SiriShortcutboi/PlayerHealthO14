@@ -25,31 +25,38 @@ class Player
 		}
 	}
 	public void Heal(int amount)
-	{
-		Console.WriteLine("Player gulps Baja Blast...");
+    {
+        Console.WriteLine("Player gulps Baja Blast...");
 
-		if (_amount >= 100)
-		{
-			Console.WriteLine("Player is already at max health. Baja Strength Boost activated ");
-			Console.WriteLine($"Health: {_amount}");
-			return;
+        if (_amount >= 100)
+        {
+            Console.WriteLine("Player is already at max health. Baja Strength Boost activated ");
+            Console.WriteLine($"Health: {_amount}");
+            return;
+        }
+
+        if (amount < 0)
+        {
+            amount = 0;
+        }
+
+        _amount += amount;
+        if (_amount > 100)
+        {
+            Console.WriteLine("Player is already at max health. Baja Strength Boost activated ");
+            _amount = 100;
+            Console.WriteLine($"Player Health: {_amount} points");
 		}
-
-		if (amount < 0)
+        else 
 		{
-			amount = 0;
-		}
+            Console.WriteLine($"Player heals: {amount} points");
+        	Console.WriteLine($"Player Health: {_amount} points");
+        }
 
-		_amount += amount;
-		if (_amount > 100)
-		{
-			Console.WriteLine("Player is already at max health. Baja Strength Boost activated ");
-			_amount = 100;
-		}
+        //Console.WriteLine($"Player heals: {amount} points");
+       // Console.WriteLine($"Player Health: {_amount} points");
+    }
 
-		Console.WriteLine($"Player heals: {amount} points");
-		Console.WriteLine($"Player Health: {_amount} points");
-	}
 
 	public void TakeDamage(int amount)
 	{
