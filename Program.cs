@@ -11,12 +11,13 @@ public class Program
 	public static void Main()
 	{
 		Player player = new Player();
-		Console.WriteLine("Ahoy matey, take a look in my special " +
-		"treasure chest \nwhile i make a deposit");
-		player.Heal();
-		player.Heal();
-		player.TakeDamage();
-		player.TakeDamage();
+		Console.WriteLine();
+		player.TakeDamage(20);
+		player.TakeDamage(20);
+		player.Heal(35);
+		player.Heal(35);
+		player.TakeDamage(20);
+		player.TakeDamage(20);
 
 		
 	}
